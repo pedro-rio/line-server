@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  get "/lines/:id", to: "lines#index"
+  get "/lines/:index", to: "lines#index"
 end
