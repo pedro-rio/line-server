@@ -7,16 +7,16 @@ class LinesController < ApplicationController
   end
 
   def index
+    return head :bad_request if invalid_index_value(params['index'])
+
     index = params['index'].to_i
     return head :payload_too_large if index > @max_lines
 
     @line = LineServer::Repository.new.find_by_index(index)
-
-    render json: { line: @line }, status: :ok
   end
 
   private
-  def check_index_value(index)
-    #check index value
+  def invalid_index_value(index)
+    index.to_s.match(/^\d+\d*$/).nil?
   end
 end
