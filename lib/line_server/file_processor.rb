@@ -8,11 +8,11 @@ module LineServer
       batch_directory = ENV['DATA_DIRECTORY']
 
       file = File.new(file_name)
-      batch_file = File.new("#{batch_directory}/batch_1.txt", 'w')
-      @batch_map = { 1 => 'batch_1.txt' }
+      batch_file = File.new("#{batch_directory}/batch_0.txt", 'w')
+      @batch_map = { 0 => 'batch_0.txt' }
 
       line_counter = 1
-      batch_counter = 1
+      batch_counter = 0
 
       @last_index = 0
 
